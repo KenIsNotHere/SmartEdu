@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Edu - Your Mathematical Journey :D</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#66B0FF',secondary:'#FF9F43'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-section {
+            background-image: url('./res/f8d198b11f3abf4c9265d226ec1a72d3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        #logonya{
+            width: 3vw;
+            margin-left: -5rem;
+
+        }
+        #tulog{
+            margin-left: 4rem;
+        }
+        header{
+            position: fixed;
+            width: 100vw;
+            background-image: linear-gradient(to right, rgb(104, 187, 255),rgb(18, 124, 174));
+            margin-top: -4rem;
+        }
+        #heroo{
+            margin-top: 4rem;
+        }
+        #tulisanUtama{
+            font-size: 5rem;
+            
+        }
+        #sm{
+            background-color: rgb(119, 193, 239);
+            color: white;
+            padding: 0.2rem;
+            border-top-left-radius: 3rem;
+            padding-left: 1vw;
+            padding-right: 1vw;
+            border-top-right-radius: 3rem;
+            border-bottom-right-radius: 3rem;
+        }
+        #Ed{
+
+        color: orange;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="./res/f557c7b1-ad1b-4158-89c0-1e1c6ca1df30.jpg" id="logonya">
+                    <span class="text-white font-semibold text-xl" id="tulog">Smart Edu</span>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-white hover:text-gray-200 font-medium">Home</a>
+                    <a href="#" class="text-white hover:text-gray-200 font-medium">Kelas</a>
+                    <a href="#" class="text-white hover:text-gray-200 font-medium">Tentang kami</a>
+                    <a href="#" class="text-white hover:text-gray-200 font-medium">Contact</a>
+                </nav>
+                
+                <div class="flex space-x-4">
+                    <button class="bg-white text-primary px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-gray-100 transition">Log In</button>
+                    <button class="bg-secondary text-white px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition">Daftar</button>
+                </div>
+                
+                <div class="md:hidden w-10 h-10 flex items-center justify-center">
+                    <i class="ri-menu-line text-white text-2xl"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="heroo" class="hero-section py-20">
+        <div class="container mx-auto px-4 w-full">
+            <div class="max-w-2xl">
+                <h1 id="tulisanUtama"><span id="sm">Smart</span> <span id="Ed">Edu</span></h1>
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-800 mb-6">Ubah cara berfikirmu mulai dari hari ini</h2>
+                <p class="text-lg text-gray-700 mb-8">Di bentuk oleh dr.Hendrik dengan tujuan memberikan Edukasi yang terbuka yang dapat diakses dimana saja</p>
+                <button class="bg-secondary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition text-lg">Jelajahi Kelas</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="videoCon">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0fV36QJQ8T8?si=oRI62RQqOU9bwryI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/FAc-BACekkY?si=KL8Bn-h7BWuKklR7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="font-['Pacifico'] text-white  text-xl">Smart Edu</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Memajukan dan mengubah cara berfikir anak-anak indonesia sejak 10 tahun terakhir</p>
+                    <div class="flex space-x-4">
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+                            <i class="ri-facebook-fill"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+                            <i class="ri-twitter-fill"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+                            <i class="ri-instagram-fill"></i>
+                        </div>
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+                            <i class="ri-youtube-fill"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Link Cepat (Shortcut)</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">tentang kami</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">kelas</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Courses</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Aljabar</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Geometri</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">kalkulus</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Statistika</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Trigonometri</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-300">Jl. Cicalengka Raya no 69, antapani kidul, bandung, jawa barat Indonesia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-300">HendrikTopGlobalDonghuang@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-300">+62 000 0000 0000</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-6 text-center">
+                <p class="text-gray-400">© 2025 Smart Edu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mock data for courses
+        const coursesData = [
+            {
+                icon: "ri-function-line",
+                title: "Aljabar Kompleks",
+                description: "Menguasai Konsep Fundamental Aljabar dimulai dari aljabar sederhana hingga pengaplikasiannya ",
+                color: "primary"
+            },
+            {
+                icon: "ri-shape-2-line",
+                title: "Fundamental Geometri",
+                description: "Mempelajari Tentang bangun datar, bangun ruang, dimensi, sudut, luas, volume hanya dalam waktu kurang dari sehari",
+                color: "secondary"
+            },
+            {
+                icon: "ri-line-chart-line",
+                title: "Gradien & Fungsi",
+                description: "Mengenali dan menguasai materi gradien dan berbagai grafik dengan konstanta pak hendrik",
+                color: "primary"
+            },
+            {
+                icon: "ri-bar-chart-box-line",
+                title: "Statistika & Probabilitas",
+                description: "Belajar tentang kemungkinan, dan grafik serta bagaimana cara mengaplikasikannya dalam kehidupan sehari-hari",
+                color: "secondary"
+            }
+        ];
+
+        // Mock data for features
+        const featuresData = [
+            {
+                icon: "ri-video-line",
+                title: "Video pembelajaran yang mudah dipahami dan interaktif",
+                description: "Melibatkan Konten video dinamis dan akan menjabarkan semua soal dengan sangat menarik dan mudah dipahami"
+            },
+            {
+                icon: "ri-question-answer-line",
+                title: "24/7 dukungan ahli",
+                description: "Tanyakan soalmu, tim edukator profesional kami akan menjawabnya dengan selangkah demi langkah"
+            },
+            {
+                icon: "ri-award-line",
+                title: "Dapatkan Serifikat yang Terverifikasi",
+                description: "Mendapatkan sertifikat (gatau mau nulis apa)"
+            }
+        ];
+
+        // Mock data for testimonials
+        const testimonialsData = [
+            {
+                name: "Kenny Richie Nergiva",
+                role: "Pelajar SMKS Medikacm Peraih juara HACKATHON National Coding Competition 2024 (setelah aktif kursus di smart edu selama kurang lebih 7 Tahun)",
+                image: "",
+                content: "Smart Edu ini beneran merubah hidup saya, karna sebelum saya masuk smart edu ini saya jujur tidak suka ngitung-ngitung apalagi matematika, namun setelah dr.Hendrik merubah pola pikir saya, saya berhasil mendapatkan 11 kali bintang matematika selagi saat saya masih SD"
+            },
+            {
+                name: "Hazel Firdaus keepa",
+                role: "Pelajar SDS El-Fitra badung, indonesia",
+                image: "",
+                content: "Saya merekomendasikan smart edu ini bagi teman-teman yang kesulitan salam menyelesaikan soal matematika, penjelasannya sangat out of the box dan luar biasa, memberikan kita pemahaman dan visualisasi dari matematika itu sendiri, sukses terus dr.Hendrik/bapak saya!"
+            },
+            {
+                name: "Etherilly Krasivaya Devuska",
+                role: "BAYI",
+                image: "",
+                content: "Saya langsung khatam kalkulus dalam waktu sehari walau saya masih berumur 4 tahun"
+            }
+        ];
+
+        // Render courses
+        const coursesContainer = document.getElementById('courses-container');
+        coursesData.forEach(course => {
+            const courseElement = document.createElement('div');
+            courseElement.className = 'bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105';
+            courseElement.innerHTML = `
+                <div class="p-6">
+                    <div class="w-14 h-14 flex items-center justify-center bg-${course.color} bg-opacity-20 rounded-full mb-4">
+                        <i class="${course.icon} text-${course.color} text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">${course.title}</h3>
+                    <p class="text-gray-600 mb-4">${course.description}</p>
+                    <button class="text-primary font-medium flex items-center hover:text-opacity-80 transition">
+                        Pelajari sekarang
+                        <i class="ri-arrow-right-line ml-1"></i>
+                    </button>
+                </div>
+            `;
+            coursesContainer.appendChild(courseElement);
+        });
+
+        // Render features
+        const featuresContainer = document.getElementById('features-container');
+        featuresData.forEach(feature => {
+            const featureElement = document.createElement('div');
+            featureElement.className = 'bg-white rounded-lg shadow-lg p-6 text-center transition-transform hover:transform hover:scale-105';
+            featureElement.innerHTML = `
+                <div class="w-16 h-16 flex items-center justify-center bg-secondary bg-opacity-20 rounded-full mx-auto mb-4">
+                    <i class="${feature.icon} text-secondary text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">${feature.title}</h3>
+                <p class="text-gray-600">${feature.description}</p>
+            `;
+            featuresContainer.appendChild(featureElement);
+        });
+
+        // Render testimonials
+        const testimonialsContainer = document.getElementById('testimonials-container');
+        testimonialsData.forEach(testimonial => {
+            const testimonialElement = document.createElement('div');
+            testimonialElement.className = 'bg-white rounded-lg shadow-lg p-6 transition-transform hover:transform hover:scale-105';
+            testimonialElement.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <img src="${testimonial.image}" alt="${testimonial.name}" class="w-14 h-14 rounded-full object-cover mr-4">
+                    <div>
+                        <h4 class="font-bold text-gray-800">${testimonial.name}</h4>
+                        <p class="text-gray-600 text-sm">${testimonial.role}</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 italic">"${testimonial.content}"</p>
+            `;
+            testimonialsContainer.appendChild(testimonialElement);
+        });
+    </script>
+</body>
+</html>
