@@ -3,144 +3,923 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Edu - Your Mathematical Journey :D</title>
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#66B0FF',secondary:'#FF9F43'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <title>Smart Edu - Your Mathematical Journey</title>
+    
+    <!-- Menghapus Tailwind dan mengganti dengan CSS biasa -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    
     <style>
-        :where([class^="ri-"])::before { content: "\f3c2"; }
+        /* Reset CSS dan variabel */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #66B0FF;
+            --secondary-color: #FF9F43;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            color: var(--gray-800);
+            line-height: 1.6;
         }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* Utility Classes */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--gray-100);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+        
+        .btn-secondary:hover {
+            opacity: 0.9;
+        }
+        
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 1.1rem;
+        }
+        
+        .section {
+            padding: 64px 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--gray-800);
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--gray-600);
+            max-width: 768px;
+            margin: 0 auto 48px;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
+        .card-body {
+            padding: 24px;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .block {
+            display: block;
+        }
+        
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: 24px;
+        }
+        
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        
+        /* Header - PERBAIKAN DISINI */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-image: linear-gradient(to right, rgb(104, 187, 255), rgb(18, 124, 174));
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            /* Menghapus margin-top negatif yang menyebabkan gap */
+        }
+        
+        .header-container {
+            padding: 12px 16px;
+        }
+        
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 80px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 12px;
+        }
+        
+        .logo-text {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        
+        /* Navigation */
+        .nav-desktop {
+            display: none;
+        }
+        
+        .nav-desktop a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 16px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-desktop a:hover {
+            color: var(--gray-200);
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            padding: 24px;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        
+        .mobile-menu-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .mobile-menu-logo img {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+        }
+        
+        .mobile-menu-logo span {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        .close-menu {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray-700);
+            cursor: pointer;
+        }
+        
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        
+        .mobile-nav a {
+            color: var(--gray-800);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        /* Hero Section */
         .hero-section {
             background-image: url('./res/f8d198b11f3abf4c9265d226ec1a72d3.jpg');
             background-size: cover;
             background-position: center;
+            padding: 120px 0 80px;
+            margin-top: 64px; /* Memberi ruang untuk header fixed */
         }
-        #logonya{
-            width: 3vw;
-            margin-left: -5rem;
-
+        
+        .hero-content {
+            max-width: 768px;
         }
-        #tulog{
-            margin-left: 4rem;
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 16px;
+            line-height: 1.2;
         }
-        header{
-            position: fixed;
-            width: 100vw;
-            background-image: linear-gradient(to right, rgb(104, 187, 255),rgb(18, 124, 174));
-            margin-top: -4rem;
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 24px;
         }
-        #heroo{
-            margin-top: 4rem;
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--gray-700);
+            margin-bottom: 32px;
         }
-        #tulisanUtama{
-            font-size: 5rem;
-            
+        
+        /* Smart Edu Logo Styling */
+        .smart-edu-logo {
+            display: inline-block;
+            margin-bottom: 8px;
         }
-        #sm{
+        
+        .smart-part {
             background-color: rgb(119, 193, 239);
             color: white;
-            padding: 0.2rem;
-            border-top-left-radius: 3rem;
-            padding-left: 1vw;
-            padding-right: 1vw;
-            border-top-right-radius: 3rem;
-            border-bottom-right-radius: 3rem;
+            padding: 4px 16px;
+            border-top-left-radius: 48px;
+            border-top-right-radius: 48px;
+            border-bottom-right-radius: 48px;
+            font-size: 3.5rem;
+            font-weight: 700;
         }
-        #Ed{
-
-        color: orange;
+        
+        .edu-part {
+            color: orange;
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        
+        /* Courses Section */
+        .courses-section {
+            background-color: var(--gray-50);
+        }
+        
+        /* Features Section */
+        .features-section {
+            background-color: rgba(102, 176, 255, 0.1);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--gray-50);
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .newsletter-video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: var(--radius-lg);
+            margin: 24px auto;
+            display: block;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .newsletter-input:focus {
+            outline: 2px solid var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--gray-800);
+            color: var(--white);
+            padding: 48px 0 24px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .footer-description {
+            color: var(--gray-300);
+            margin-bottom: 24px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--gray-700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-heading {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        
+        .footer-contact-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+        
+        .footer-contact-text {
+            color: var(--gray-300);
+            flex: 1;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 24px;
+            text-align: center;
+            color: var(--gray-400);
+        }
+        
+        /* Course Card */
+        .course-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        
+        .course-icon-primary {
+            background-color: rgba(102, 176, 255, 0.2);
+            color: var(--primary-color);
+        }
+        
+        .course-icon-secondary {
+            background-color: rgba(255, 159, 67, 0.2);
+            color: var(--secondary-color);
+        }
+        
+        .course-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--gray-800);
+        }
+        
+        .course-description {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        
+        .course-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+        
+        .course-link:hover {
+            color: rgba(102, 176, 255, 0.8);
+        }
+        
+        /* Feature Card */
+        .feature-card {
+            height: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            background-color: rgba(255, 159, 67, 0.2);
+            color: var(--secondary-color);
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--gray-800);
+        }
+        
+        .feature-description {
+            color: var(--gray-600);
+        }
+        
+        /* Testimonial Card */
+        .testimonial-card {
+            height: 100%;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-600);
+            font-weight: bold;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        
+        .testimonial-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 4px;
+        }
+        
+        .testimonial-role {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+        
+        .testimonial-content {
+            color: var(--gray-700);
+            font-style: italic;
+        }
+        
+        /* Founder Section */
+        .founder-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .founder-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .founder-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .founder-info {
+            width: 100%;
+        }
+        
+        .founder-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 16px;
+        }
+        
+        .founder-description {
+            color: var(--gray-700);
+            margin-bottom: 16px;
+        }
+        
+        .founder-social {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .founder-social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: opacity 0.3s ease;
+        }
+        
+        .founder-social-icon:hover {
+            opacity: 0.8;
+        }
+        
+        /* Header Buttons (Desktop) */
+        .header-buttons {
+            display: none;
+        }
+        
+        /* Media Queries untuk Responsif */
+        @media (min-width: 640px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .smart-part, .edu-part {
+                font-size: 4rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.75rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .grid-cols-sm-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .newsletter-form {
+                flex-direction: row;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .nav-desktop {
+                display: flex;
+            }
+            
+            .header-buttons {
+                display: flex;
+                gap: 16px;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .founder-container {
+                flex-direction: row;
+                gap: 48px;
+            }
+            
+            .founder-image {
+                max-width: 250px;
+            }
+            
+            .grid-cols-md-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-cols-lg-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .founder-image {
+                max-width: 300px;
+            }
+        }
+        
+        /* Perbaikan tambahan untuk navbar */
+        body.no-scroll {
+            overflow: hidden;
         }
     </style>
 </head>
-<body class="bg-white">
+<body>
     <!-- Header -->
-    <header class="shadow-md">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <img src="./res/SElogo.jpg" id="logonya">
-                    <span class="text-white font-semibold text-xl" id="tulog">Smart Edu</span>
+    <header>
+        <div class="container header-container">
+            <div class="flex items-center justify-between">
+                <div class="logo">
+                    <img src="./res/SEA.jpg" alt="Smart Edu Logo">
+                    <span class="logo-text">Smart Edu</span>
                 </div>
                 
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#" class="text-white hover:text-gray-200 font-medium">Home</a>
-                    <a href="https://kenisnothere.github.io/SmartEdu/kelas" class="text-white hover:text-gray-200 font-medium">Kelas</a>
-                    <a href="#" class="text-white hover:text-gray-200 font-medium">Tentang kami</a>
-                    <a href="#" class="text-white hover:text-gray-200 font-medium">Contact</a>
+                <nav class="nav-desktop">
+                    <a href="#">Home</a>
+                    <a href="#" id="kelasbtnD">Kelas</a>
+                    <a href="#">Tentang kami</a>
+                    <a href="#">Contact</a>
                 </nav>
                 
-                <div class="flex space-x-4">
-                    <button class="bg-white text-primary px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-gray-100 transition">Log In</button>
-                    <button class="bg-secondary text-white px-4 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition">Daftar</button>
+                <div class="header-buttons">
+                    <button class="btn btn-primary">Log In</button>
+                    <button class="btn btn-secondary">Daftar</button>
                 </div>
                 
-                <div class="md:hidden w-10 h-10 flex items-center justify-center">
-                    <i class="ri-menu-line text-white text-2xl"></i>
+                <button class="mobile-menu-btn" id="mobile-menu-button">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <img src="./res/SEA.jpg" alt="Smart Edu Logo">
+                    <span>Smart Edu</span>
                 </div>
+                <button class="close-menu" id="close-menu">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            
+            <nav class="mobile-nav">
+                <a href="#">Home</a>
+                <a href="#" id="kelasbtnM">Kelas</a>
+                <a href="#">Tentang kami</a>
+                <a href="#">Contact</a>
+            </nav>
+            
+            <div class="mobile-buttons">
+                <button class="btn btn-primary">Log In</button>
+                <button class="btn btn-secondary">Daftar</button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="heroo" class="hero-section py-20">
-        <div class="container mx-auto px-4 w-full">
-            <div class="max-w-2xl">
-                <h1 id="tulisanUtama"><span id="sm">Smart</span> <span id="Ed">Edu</span></h1>
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-800 mb-6">Ubah cara berfikirmu mulai dari hari ini</h2>
-                <p class="text-lg text-gray-700 mb-8">Di bentuk oleh dr.Hendrik dengan tujuan memberikan Edukasi yang terbuka yang dapat diakses dimana saja</p>
-                <button class="bg-secondary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition text-lg">Jelajahi Kelas</button>
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="smart-edu-logo">
+                    <span class="smart-part">Smart</span>
+                    <span class="edu-part">Edu</span>
+                </div>
+                <h2 class="hero-subtitle">Ubah cara berfikirmu mulai dari hari ini</h2>
+                <p class="hero-description">Di bentuk oleh dr.Hendrik dengan tujuan memberikan Edukasi yang terbuka yang dapat diakses dimana saja</p>
+                <button class="btn btn-secondary btn-lg">Jelajahi Kelas</button>
             </div>
         </div>
     </section>
 
     <!-- Featured Courses Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Fitur kelas kami</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Jelajahi Fitur kelas website kami untuk memberikan gambaran bagaimana solusi dan inovasi dalam pendidikan indonesia.</p>
-            </div>
+    <section class="section courses-section">
+        <div class="container">
+            <h2 class="section-title">Fitur kelas kami</h2>
+            <p class="section-subtitle">Jelajahi Fitur kelas website kami untuk memberikan gambaran bagaimana solusi dan inovasi dalam pendidikan indonesia.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="courses-container">
-                <!-- Isi kelas -->
+            <div class="grid grid-cols-1 grid-cols-sm-2 grid-cols-lg-4" id="courses-container">
+                <!-- Isi kelas akan diisi oleh JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- About Founder Section -->
-    <section class="py-16 bg-primary bg-opacity-10">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">kenalan dengan Founder kami</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Seorang visioner dan Dokter dibelakang SmartEdu yang memiliki inovasi yang luar biasa terhadap cara belajar kita</p>
-            </div>
+    <section class="section features-section">
+        <div class="container">
+            <h2 class="section-title">Kenalan dengan Founder kami</h2>
+            <p class="section-subtitle">Seorang visioner dan Dokter dibelakang SmartEdu yang memiliki inovasi yang luar biasa terhadap cara belajar kita</p>
             
-            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
-                <div class="w-full md:w-1/3">
-                    <div class="rounded-lg overflow-hidden shadow-lg">
-                        <img src="./res/papih.jpg" alt="Dr. Hendrik" class="w-full h-auto object-cover">
-                    </div>
+            <div class="founder-container">
+                <div class="founder-image">
+                    <img src="./res/papih.jpg" alt="Dr. Hendrik">
                 </div>
                 
-                <div class="w-full md:w-2/3">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Dr. Hendrik </h3>
-                    <p class="text-lg text-gray-700 mb-4">Dengan lebih dari 10 tahun, Dr. Hendrik melakukan riset terhadap anak-anak di indonesia, ternyata masih banyak anak-anak di indonesia yang tidak bisa mengerjakan soal matematika,</p>
-                    <p class="text-lg text-gray-700 mb-4">berdasarkan hasil penelitiannya, ternyata mayoritas anak-anak di Indonesia sangat tidak menyukai matematika, seolah-olah menggangap bahwa matematika itu tidak penting bagi kehidupan mereka, padahal matematika merupakan salah satu kunci logika yang dapat merubah bagaimana cara seseorang itu berfikir dan menyelesaikan masalah</p>
-                    <p class="text-lg text-gray-700 mb-6">dengan ini dr. Hendrik berhasil menemukan berbagai macam akar masalah yang membuat pendidikan di indonesia ini masih kalah dibanfdingkan dengan negara-negara lain.</p>
-                    <div class="flex space-x-4">
-                        <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white">
+                <div class="founder-info">
+                    <h3 class="founder-name">Dr. Hendrik</h3>
+                    <p class="founder-description">Dengan lebih dari 10 tahun, Dr. Hendrik melakukan riset terhadap anak-anak di indonesia, ternyata masih banyak anak-anak di indonesia yang tidak bisa mengerjakan soal matematika,</p>
+                    <p class="founder-description">berdasarkan hasil penelitiannya, ternyata mayoritas anak-anak di Indonesia sangat tidak menyukai matematika, seolah-olah menggangap bahwa matematika itu tidak penting bagi kehidupan mereka, padahal matematika merupakan salah satu kunci logika yang dapat merubah bagaimana cara seseorang itu berfikir dan menyelesaikan masalah</p>
+                    <p class="founder-description">dengan ini dr. Hendrik berhasil menemukan berbagai macam akar masalah yang membuat pendidikan di indonesia ini masih kalah dibanfdingkan dengan negara-negara lain.</p>
+                    
+                    <div class="founder-social">
+                        <div class="founder-social-icon">
                             <i class="ri-linkedin-fill"></i>
                         </div>
-                        <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white">
+                        <div class="founder-social-icon">
                             <i class="ri-twitter-fill"></i>
                         </div>
-                        <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white">
+                        <div class="founder-social-icon">
                             <i class="ri-mail-fill"></i>
                         </div>
                     </div>
@@ -150,133 +929,159 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Kenapa memilih SmartEdu?</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Di Platform kami, kami menyediakan berbagai edukasi bagaimana cara menyelesaikan soal soal yang rumit, dan terdapat 30.000 Testimoni di Seluruh penjuru indonesia</p>
-            </div>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Kenapa memilih SmartEdu?</h2>
+            <p class="section-subtitle">Di Platform kami, kami menyediakan berbagai edukasi bagaimana cara menyelesaikan soal soal yang rumit, dan terdapat 30.000 Testimoni di Seluruh penjuru indonesia</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="features-container">
-                <!-- next fitur -->
+            <div class="grid grid-cols-1 grid-cols-md-3" id="features-container">
+                <!-- Fitur akan diisi oleh JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Testimoni kami</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hasil Setelah mereka mengikuti kursus smart edu yang diajarkan oleh dr. Hendrik</p>
-            </div>
+    <section class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Testimoni kami</h2>
+            <p class="section-subtitle">Hasil Setelah mereka mengikuti kursus smart edu yang diajarkan oleh dr. Hendrik</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="testimonials-container">
-                <!-- ntar kembangin testimoninya disini -->
+            <div class="grid grid-cols-1 grid-cols-md-3" id="testimonials-container">
+                <!-- Testimoni akan diisi oleh JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section class="py-16 bg-primary">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-white mb-4">Selalu paling baru</h2>
-                <video src="./res/WhatsApp Video 2025-04-01 at 12.48.27.mp4" autoplay muted loop></video>
-                <p class="text-lg text-white mb-8">Dukung dan Follow Media sosial kami agar SmartEdu dapat terus berkembang dan menjadi Sarana Edukasi Untuk indonesia</p>
+    <section class="section newsletter-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title" style="color: white;">Selalu paling baru</h2>
+                <video class="newsletter-video" src="./res/WhatsApp Video 2025-04-01 at 12.48.27.mp4" autoplay muted loop playsinline></video>
+                <p class="section-subtitle" style="color: white; margin-bottom: 32px;">Dukung dan Follow Media sosial kami agar SmartEdu dapat terus berkembang dan menjadi Sarana Edukasi Untuk indonesia</p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <input type="email" placeholder="alamat emailmu " class="px-4 py-3 !rounded-button border-none focus:outline-none focus:ring-2 focus:ring-secondary flex-grow max-w-md">
-                    <button class="bg-secondary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition">Langganan</button>
-                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="alamat emailmu" class="newsletter-input" required>
+                    <button type="submit" class="btn btn-secondary">Langganan</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
                 <div>
-                    <div class="flex items-center mb-4">
-                        <span class="font-['Pacifico'] text-white  text-xl">Smart Edu</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">Memajukan dan mengubah cara berfikir anak-anak indonesia sejak 10 tahun terakhir</p>
-                    <div class="flex space-x-4">
-                        <div class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+                    <span class="footer-logo">Smart Edu</span>
+                    <p class="footer-description">Memajukan dan mengubah cara berfikir anak-anak indonesia sejak 10 tahun terakhir</p>
+                    <div class="social-icons">
+                        <div class="social-icon">
                             <i class="ri-facebook-fill"></i>
                         </div>
-                        <div class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+                        <div class="social-icon">
                             <i class="ri-twitter-fill"></i>
                         </div>
-                        <div class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+                        <div class="social-icon">
                             <i class="ri-instagram-fill"></i>
                         </div>
-                        <div class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition">
+                        <div class="social-icon">
                             <i class="ri-youtube-fill"></i>
                         </div>
                     </div>
                 </div>
                 
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Link Cepat (Shortcut)</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Home</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">tentang kami</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">kelas</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                    <h3 class="footer-heading">Link Cepat (Shortcut)</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">tentang kami</a></li>
+                        <li><a href="#">kelas</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Courses</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Aljabar</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Geometri</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">kalkulus</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Statistika</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Trigonometri</a></li>
+                    <h3 class="footer-heading">Courses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Aljabar</a></li>
+                        <li><a href="#">Geometri</a></li>
+                        <li><a href="#">kalkulus</a></li>
+                        <li><a href="#">Statistika</a></li>
+                        <li><a href="#">Trigonometri</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon">
                                 <i class="ri-map-pin-line"></i>
                             </div>
-                            <span class="text-gray-300">Jl. Cicalengka Raya no 69, antapani kidul, bandung, jawa barat Indonesia</span>
+                            <span class="footer-contact-text">Jl. Cicalengka Raya no 69, antapani kidul, bandung, jawa barat Indonesia</span>
                         </li>
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon">
                                 <i class="ri-mail-line"></i>
                             </div>
-                            <span class="text-gray-300">HendrikTopGlobalDonghuang@gmail.com</span>
+                            <span class="footer-contact-text">HendrikTopGlobalDonghuang@gmail.com</span>
                         </li>
-                        <li class="flex items-start">
-                            <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon">
                                 <i class="ri-phone-line"></i>
                             </div>
-                            <span class="text-gray-300">+62 000 0000 0000</span>
+                            <span class="footer-contact-text">+62 000 0000 0000</span>
                         </li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-12 pt-6 text-center">
-                <p class="text-gray-400">© 2025 Smart Edu. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>© 2025 Smart Edu. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
     <script>
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const closeMenuButton = document.getElementById('close-menu');
+        const kelasbtnD= document.getElementById('kelasbtnD');
+        const kelasbtnM= document.getElementById('kelasbtnM');
+        kelasbtnD.addEventListener("click",()=>{
+            window.location.href = "./kelas.html"
+        })
+        kelasbtnM.addEventListener("click",()=>{
+            window.location.href = "./kelas.html"
+        })
+        
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        }
+        
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        closeMenuButton.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+        
         // Mock data for courses
         const coursesData = [
             {
                 icon: "ri-function-line",
                 title: "Aljabar Kompleks",
-                description: "Menguasai Konsep Fundamental Aljabar dimulai dari aljabar sederhana hingga pengaplikasiannya ",
+                description: "Menguasai Konsep Fundamental Aljabar dimulai dari aljabar sederhana hingga pengaplikasiannya",
                 color: "primary"
             },
             {
@@ -323,19 +1128,19 @@
             {
                 name: "Kenny Richie Nergiva",
                 role: "Pelajar SMKS Medikacm Peraih juara HACKATHON National Coding Competition 2024 (setelah aktif kursus di smart edu selama kurang lebih 7 Tahun)",
-                image: "",
+                initials: "KR",
                 content: "Smart Edu ini beneran merubah hidup saya, karna sebelum saya masuk smart edu ini saya jujur tidak suka ngitung-ngitung apalagi matematika, namun setelah dr.Hendrik merubah pola pikir saya, saya berhasil mendapatkan 11 kali bintang matematika selagi saat saya masih SD"
             },
             {
                 name: "Hazel Firdaus keepa",
                 role: "Pelajar SDS El-Fitra badung, indonesia",
-                image: "",
+                initials: "HF",
                 content: "Saya merekomendasikan smart edu ini bagi teman-teman yang kesulitan salam menyelesaikan soal matematika, penjelasannya sangat out of the box dan luar biasa, memberikan kita pemahaman dan visualisasi dari matematika itu sendiri, sukses terus dr.Hendrik/bapak saya!"
             },
             {
                 name: "Etherilly Krasivaya Devuska",
                 role: "BAYI",
-                image: "",
+                initials: "EK",
                 content: "Saya langsung khatam kalkulus dalam waktu sehari walau saya masih berumur 4 tahun"
             }
         ];
@@ -344,18 +1149,18 @@
         const coursesContainer = document.getElementById('courses-container');
         coursesData.forEach(course => {
             const courseElement = document.createElement('div');
-            courseElement.className = 'bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105';
+            courseElement.className = 'card course-card';
             courseElement.innerHTML = `
-                <div class="p-6">
-                    <div class="w-14 h-14 flex items-center justify-center bg-${course.color} bg-opacity-20 rounded-full mb-4">
-                        <i class="${course.icon} text-${course.color} text-2xl"></i>
+                <div class="card-body">
+                    <div class="course-icon ${course.color === 'primary' ? 'course-icon-primary' : 'course-icon-secondary'}">
+                        <i class="${course.icon}"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">${course.title}</h3>
-                    <p class="text-gray-600 mb-4">${course.description}</p>
-                    <button class="text-primary font-medium flex items-center hover:text-opacity-80 transition">
+                    <h3 class="course-title">${course.title}</h3>
+                    <p class="course-description">${course.description}</p>
+                    <a href="#" class="course-link">
                         Pelajari sekarang
-                        <i class="ri-arrow-right-line ml-1"></i>
-                    </button>
+                        <i class="ri-arrow-right-line" style="margin-left: 4px;"></i>
+                    </a>
                 </div>
             `;
             coursesContainer.appendChild(courseElement);
@@ -365,13 +1170,15 @@
         const featuresContainer = document.getElementById('features-container');
         featuresData.forEach(feature => {
             const featureElement = document.createElement('div');
-            featureElement.className = 'bg-white rounded-lg shadow-lg p-6 text-center transition-transform hover:transform hover:scale-105';
+            featureElement.className = 'card feature-card';
             featureElement.innerHTML = `
-                <div class="w-16 h-16 flex items-center justify-center bg-secondary bg-opacity-20 rounded-full mx-auto mb-4">
-                    <i class="${feature.icon} text-secondary text-2xl"></i>
+                <div class="card-body">
+                    <div class="feature-icon">
+                        <i class="${feature.icon}"></i>
+                    </div>
+                    <h3 class="feature-title">${feature.title}</h3>
+                    <p class="feature-description">${feature.description}</p>
                 </div>
-                <h3 class="text-xl font-bold text-gray-800 mb-3">${feature.title}</h3>
-                <p class="text-gray-600">${feature.description}</p>
             `;
             featuresContainer.appendChild(featureElement);
         });
@@ -380,24 +1187,23 @@
         const testimonialsContainer = document.getElementById('testimonials-container');
         testimonialsData.forEach(testimonial => {
             const testimonialElement = document.createElement('div');
-            testimonialElement.className = 'bg-white rounded-lg shadow-lg p-6 transition-transform hover:transform hover:scale-105';
+            testimonialElement.className = 'card testimonial-card';
             testimonialElement.innerHTML = `
-                <div class="flex items-center mb-4">
-                    <img src="${testimonial.image}" alt="${testimonial.name}" class="w-14 h-14 rounded-full object-cover mr-4">
-                    <div>
-                        <h4 class="font-bold text-gray-800">${testimonial.name}</h4>
-                        <p class="text-gray-600 text-sm">${testimonial.role}</p>
+                <div class="card-body">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            ${testimonial.initials}
+                        </div>
+                        <div class="testimonial-info">
+                            <h4 class="testimonial-name">${testimonial.name}</h4>
+                            <p class="testimonial-role">${testimonial.role}</p>
+                        </div>
                     </div>
+                    <p class="testimonial-content">"${testimonial.content}"</p>
                 </div>
-                <p class="text-gray-700 italic">"${testimonial.content}"</p>
             `;
             testimonialsContainer.appendChild(testimonialElement);
         });
     </script>
 </body>
-
 </html>
-
-
-
-
